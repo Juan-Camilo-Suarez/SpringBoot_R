@@ -30,7 +30,7 @@ public class Config implements WebMvcConfigurer {
     public DataSource getDataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("org.postgresql.Driver");
-        dataSource.setUrl("jdbc:postgresql://localhost:5432/examweb");
+        dataSource.setUrl("jdbc:postgresql://localhost:5432/exam_web");
         dataSource.setUsername("postgres");
         dataSource.setPassword("");
         return dataSource;
@@ -48,8 +48,8 @@ public class Config implements WebMvcConfigurer {
         jpaProperties.setProperty("hibernate.hbm2ddl.auto", "update"); // none, update
         jpaProperties.setProperty("hibernate.show_sql", "true"); // ddl-auto
         em.setJpaProperties(jpaProperties);
-        em.setPersistenceUnitName("examweb");
-        em.setPackagesToScan("ru.itis.sem_col.models");
+        em.setPersistenceUnitName("exam_web");
+        em.setPackagesToScan("ru.itis.examweb.models");
         //em.afterPropertiesSet();
 
         return em;
