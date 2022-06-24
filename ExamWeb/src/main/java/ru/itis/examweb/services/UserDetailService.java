@@ -7,6 +7,8 @@ import ru.itis.examweb.controllers.dto.RegisterUserDto;
 import ru.itis.examweb.models.User;
 import ru.itis.examweb.repositories.UserRepository;
 
+import java.util.List;
+
 @Service
 public class UserDetailService implements UserService{
     @Autowired
@@ -24,6 +26,12 @@ public class UserDetailService implements UserService{
 
         return user;
     }
+
+    @Override
+    public List<User> findByNombre(String name) {
+        return userRepository.findByNombre(name);
+    }
+
     public User getuser(){
         return user;
     }
