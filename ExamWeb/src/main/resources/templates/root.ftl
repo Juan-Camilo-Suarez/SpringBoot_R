@@ -22,7 +22,7 @@
                     <a class="nav-link active" aria-current="page" href="/">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/col/account">Account</a>
+                    <a class="nav-link" href="/account">Account</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/logout">Log Out</a>
@@ -35,6 +35,39 @@
     </div>
 </nav>
 
+<div class="container d-flex justify-content-center align-items-center">
+
+    <div class="card">
+
+        <div class="upper">
+
+            <img src="https://i.imgur.com/Qtrsrk5.jpg" class="img-fluid">
+
+        </div>
+
+        <div class="user text-center">
+
+            <div class="profile">
+
+                <img src="https://i.imgur.com/JgYD2nQ.jpg" class="rounded-circle" width="80">
+
+            </div>
+
+        </div>
+
+
+        <div class="mt-5 text-center">
+
+            <h4 class="mb-0">${user.name}</h4>
+            <span class="text-muted d-block mb-2">Age: ${user.age}</span>
+            <span class="text-muted d-block mb-2">${user.email}</span>
+
+
+        </div>
+
+    </div>
+
+</div>
 
 </body>
 </html>
