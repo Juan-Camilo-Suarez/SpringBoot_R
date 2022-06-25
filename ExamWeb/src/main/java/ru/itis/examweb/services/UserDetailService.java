@@ -27,10 +27,6 @@ public class UserDetailService implements UserService{
         return user;
     }
 
-    @Override
-    public List<User> findByNombre(String name) {
-        return userRepository.findByNombre(name);
-    }
 
     public User getuser(){
         return user;

@@ -10,8 +10,8 @@ import java.util.List;
 
 public interface UserRepository extends CrudRepository<User, Long> {
 
-    @Query("select m from User m where UPPER(name) like '%'|| :name ||'%' ")
-    List<User> findByNombre(@Param("name") String name);
+   List<User> findAll();
 
     User findByName(String username);
+
 }

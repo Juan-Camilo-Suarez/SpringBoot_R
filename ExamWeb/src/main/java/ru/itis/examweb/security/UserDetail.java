@@ -24,6 +24,6 @@ public class UserDetail implements UserDetailsService {
             //List<UserRole> roles = roleRepository.findByUser(user.getId());
             //user.setRoles(roles);
             return new UserDetailImple(user);
-        } throw new UsernameNotFoundException("Organization not found!");
+        } throw new UsernameNotFoundException("User not found!");
     }
 }

@@ -6,12 +6,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Organization Login Form Spring Security</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
 </head>
 <body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+<script>
+    $(document).ready(function() {
+        $.ajax({
+            url: '/getusers',
+            dataType:'json',
+            async:false,
+            error: function(xhr, statusText, err) {
+                console.log("error"+xhr.status);
+            },
+
+            success: function(data) {
+                for (let i = 0; i < data.length; i++) {
+                    var rowcontent = "<tr><th>" + data[i].name + "</th>";
+                    rowcontent = rowcontent + "<td>" + data[i].age + "</td>"
+                    rowcontent = rowcontent + "<td>" + data[i].email + "</td></tr>"
+                    $("#tbl_body").append(rowcontent);
+                }
+            },
+            type: 'GET'
+        });
+    });
+</script>
 <nav class="navbar navbar-dark bg-dark">
     <div class="container-fluid">
-        <a class="navbar-brand" href="/">Home</a>
+        <a class="navbar-brand" href="/">Profile</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -34,39 +57,17 @@
     </div>
 </nav>
 
-<div class="container d-flex justify-content-center align-items-center">
+<table>
+   <thead>
+   <tr>
+       <th>Name</th>
+       <th>Age</th>
+       <th>Email</th>
+   </tr>
+   </thead>
+    <tbody id="tbl_body"></tbody>
 
-    <div class="card">
+</table>
 
-        <div class="upper">
-
-            <img src="https://i.imgur.com/Qtrsrk5.jpg" class="img-fluid">
-
-        </div>
-
-        <div class="user text-center">
-
-            <div class="profile">
-
-                <img src="https://i.imgur.com/JgYD2nQ.jpg" class="rounded-circle" width="80">
-
-            </div>
-
-        </div>
-
-
-        <div class="mt-5 text-center">
-
-            <h4 class="mb-0">${user.name}</h4>
-            <span class="text-muted d-block mb-2">Age: ${user.age}</span>
-            <span class="text-muted d-block mb-2">${user.email}</span>
-
-
-        </div>
-
-    </div>
-
-</div>
 
 </body>
-</html>

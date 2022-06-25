@@ -8,5 +8,4 @@ import java.util.List;
 
 public interface UserService {
     User registerNewUser(RegisterUserDto registerUserDto)throws JsonProcessingException;
-    List<User> findByNombre(String name);
 }
