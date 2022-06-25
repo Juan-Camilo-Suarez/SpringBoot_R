@@ -9,7 +9,7 @@ import ru.itis.examweb.services.UserDetailService;
 
 @Controller
 public class RootController {
-     @Autowired
+    @Autowired
     UserDetailService userDetailService;
 
     @GetMapping("/")
