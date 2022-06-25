@@ -24,6 +24,7 @@ public class RegisterController {
         model.addAttribute("user", userDto);
         return "register";
     }
+    //register
     @PostMapping("/register")
     public ModelAndView registerUserAccount(
             @ModelAttribute("user") @Valid RegisterUserDto userDto) {
