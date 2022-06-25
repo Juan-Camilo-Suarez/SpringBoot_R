@@ -10,6 +10,10 @@
 <body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 
+<script type="javascript">
+
+</script>
+
 <section class="vh-100 gradient-custom">
     <div class="container py-5 h-100">
         <div class="row d-flex justify-content-center align-items-center h-100">
@@ -33,7 +37,7 @@
                             </div>
 
 
-                            <button class="btn btn-outline-light btn-lg px-5" type="submit">Login</button>
+                            <button class="btn btn-outline-light btn-lg px-5" type="submit" id="submitbutton">Login</button>
                             </form>
 
                         </div>

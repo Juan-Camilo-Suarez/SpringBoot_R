@@ -1,5 +1,6 @@
 package ru.itis.examweb.controllers;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -11,12 +12,15 @@ import org.springframework.web.servlet.ModelAndView;
 import ru.itis.examweb.controllers.dto.RegisterUserDto;
 import ru.itis.examweb.services.UserDetailService;
 
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 @Controller
-public class RegisterController {
+public class UserController {
     @Autowired
-    private UserDetailService userDetailService;
+    UserDetailService userDetailsService;
+
 
     @GetMapping("/register")
     public String showRegistrationForm(Model model) {
@@ -31,7 +35,7 @@ public class RegisterController {
         String encodedPassword = passwordEncoder.encode(userDto.getPassword());
         userDto.setPassword(encodedPassword);
         try {
-            userDetailService.registerNewUser(userDto);
+            userDetailsService.registerNewUser(userDto);
         } catch (Exception e) {
             System.out.println(e);
             System.out.println(("message An account for that username/email already exists."));
@@ -39,5 +43,27 @@ public class RegisterController {
         }
 
         return new ModelAndView("loginform", "user", userDto);
+    }
+
+    @GetMapping("/login")
+    public String loginPage(Model model) throws JsonProcessingException {
+        System.out.println(model);
+
+        return "loginform";
+
+    }
+    @PostMapping("/")
+    public String loginForm(HttpServletRequest request, Model model, RegisterUserDto userDto) throws JsonProcessingException {
+        System.out.println(userDto.getName() + "--------------");
+        try {
+            request.login(userDto.getName(), userDto.getPassword());
+        } catch (ServletException e) {
+            e.printStackTrace();
+        }
+        return "/";
+    }
+    @GetMapping("/users")
+    public String usersPage(){
+        return "users";
     }
 }

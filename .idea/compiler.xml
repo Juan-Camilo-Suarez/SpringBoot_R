@@ -7,17 +7,16 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="ExamWeb" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="ProjectExam" target="17" />
+      <module name="ExamWeb" target="17" />
+      <module name="SpringBoot_R" target="1.7" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="ExamWeb" options="-parameters" />
-      <module name="ProjectExam" options="-parameters" />
     </option>
   </component>
 </project>
