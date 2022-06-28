@@ -20,4 +20,8 @@ public class RootController {
 
         return "root";
     }
+    @GetMapping(value="/on")
+    public String getcolor(){
+        return "semaphore";
+    }
 }
